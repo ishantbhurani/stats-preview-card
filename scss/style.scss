@@ -1,0 +1,117 @@
+@import "resets";
+@import "variables";
+@import "mixins";
+
+body {
+  @include center;
+
+  width: 100%;
+  min-height: 100vh;
+  background-color: $dark-blue;
+  color: $white;
+  font-family: "Inter", sans-serif;
+  padding: 2em;
+}
+
+.card {
+  @include for-desktop {
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  width: 300px;
+  background-color: $desaturated-blue;
+  text-align: center;
+  border-radius: 0.325em;
+  overflow: hidden;
+
+  &-head {
+    @include for-desktop {
+      height: 100%;
+      width: 400px;
+      background: url("../images/image-header-desktop.jpg") no-repeat center;
+      background-size: cover;
+    }
+
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background-color: $soft-violet;
+    background: url("../images/image-header-mobile.jpg") no-repeat center;
+    background-size: cover;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgba($violet, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-body {
+    @include for-desktop {
+      padding: 2em 3em;
+      text-align: left;
+      grid-row: 1;
+    }
+
+    padding: 1.5em 1.2em;
+  }
+}
+
+.title {
+  font-size: 1.6rem;
+  margin: 0.5em 0;
+
+  span {
+    color: $soft-violet;
+  }
+}
+
+.info {
+  @include for-desktop {
+    font-size: 0.8rem;
+    margin-top: 2em;
+    margin-bottom: 4em;
+  }
+
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: $fader-white;
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+}
+
+.stats {
+  @include for-desktop {
+    flex-direction: row;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-bottom: 1em;
+
+  p {
+    @include for-desktop {
+      font-size: 0.6rem;
+    }
+
+    font-family: "Lexend Deca", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: $fader-white;
+    margin-top: 0.5em;
+  }
+}
